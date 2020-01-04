@@ -1,0 +1,123 @@
+body {
+   margin: 0;
+   font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+header {
+   text-align: center;
+   margin: 0;
+   padding: 20px;
+   height: 50px;
+   background-color: rosybrown;
+   font-family: Georgia, 'Times New Roman', Times, serif;
+   font-size: 36px;
+   color: black;
+}
+
+#container {
+   margin: 20px;
+   padding:0;
+   border-color: red;
+   border-width: 1em;
+}
+
+#generators {
+   height: 350px;
+   padding-left: 5px;
+   border-style: solid;
+   border-width: 1px;
+}
+
+
+#story-gen-container {
+   /* border-style: solid;
+   border-width: 1px; */
+   width: 48%;
+   float: left;
+}
+
+#temp-story-container {
+   margin: 5px 0;
+   padding: 3px;
+   /* border-style: solid;
+   border-width: 1px; */
+}
+
+#character-gen-container {
+   margin-right: 5px;
+   width: 48%;
+   float: right;
+}
+
+#temp-character-container {
+   margin: 5px;
+   padding:10px;
+   width: 200px;
+   border-style: solid;
+   border-width: 1px;
+   image-orientation: flip;
+   background-color: ivory;
+}
+
+#temp-character-container img {
+   border-style: solid;
+   border-width: 1px;
+}
+
+#temp-character-container h4 {
+   margin: 3px 0;
+}
+
+#temp-character-container p {
+   margin: 10px 0;
+}
+
+
+#selections {
+   margin-top: 10px;
+   padding-left: 5px;
+   height: 300px;
+   border-style: solid;
+   border-width: 1px;
+}
+
+#selected-story {
+   /* border-style: solid;
+   border-width: 1px; */
+   width: 48%;
+   float: left;
+}
+
+#selected-characters {
+   /* border-style: solid;
+   border-width: 1px; */
+   width: 48%;
+   float: right;
+}
+
+/* .storyCard {
+   display: inline-flexbox;
+   font-size: 14px;
+   float: left;
+   width: 300px;
+   border-style: solid;
+   border-width: 1px;
+   margin: 3px;
+   padding: 5px;
+   min-height: 200px;
+   max-height: 200px;
+} */
+
+.loader {
+   border: 16px solid #f3f3f3; /* Light grey */
+   border-top: 16px solid #3498db; /* Blue */
+   border-radius: 50%;
+   width: 120px;
+   height: 120px;
+   animation: spin 2s linear infinite;
+ }
+ 
+ @keyframes spin {
+   0% { transform: rotate(0deg); }
+   100% { transform: rotate(360deg); }
+ }

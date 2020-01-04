@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles/index.css">
+    <title>Story Generator</title>
+</head>
+
+<body>
+    <header>Story Generator</header>
+    <div id="container">
+
+    <!-- generators on top of page ---------------------------------------------------------------------  -->
+    <div id="generators">
+        <h3>GENERATORS</h3>
+        <div id="story-gen-container">
+            <button id="storyGenBtn">Generate Story</button>
+            <div id="temp-story-container"></div>
+            <button id="selectStoryBtn" hidden>SELECT STORY</button>
+
+        </div>
+
+        <div id="character-gen-container">
+            <button id="charGenBtn">Generate Character</button>
+            <div id="temp-character-container"></div>
+            <button id="selectCharBtn" hidden>ADD CHARACTER</button>
+        </div>
+
+    </div> <!-- end generators div -->
+
+    <!-- selections on middle of page ---------------------------------------------------------------------  -->
+
+    <div id="selections">
+        <h3>SELECTIONS</h3>
+
+        <!-- <div id="story-select-container"> -->
+            <div id="selected-story"></div>
+        <!-- </div> -->
+
+        <!-- <div id="character-select-container"> -->
+            <div id="selected-characters"></div>
+        <!-- </div> -->
+
+        <button id="saveBtn" hidden>SAVE STORY</button>
+
+    </div> <!-- end selections div -->
+
+    <!-- saved stories on bottom of page ---------------------------------------------------------------------  -->
+
+    <div id="my-stories">
+        <h3>MY STORIES</h3>
+
+        <div id="story-container"></div>
+
+    </div><!-- end my stories div -->
+      
+    </div> <!-- end container div-->
+</body>
+
+    <script type="text/javascript" src="src/components/story.js"></script>
+    <script type="text/javascript" src="src/components/character.js"></script>
+    <script type="text/javascript" src="src/components/stories.js"></script>
+    <script type="text/javascript" src="src/components/characters.js"></script>
+    <script type="text/javascript" src="src/components/app.js"></script>
+    <script type="text/javascript" src="src/adapters/StoriesAdapter.js"></script>
+    <script type="text/javascript" src="src/adapters/CharactersAdapter.js"></script>
+    <script type="text/javascript" src="src/index.js"></script>
+
+</html>
+
