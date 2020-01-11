@@ -21,8 +21,21 @@ class CharactersAdapter {
         }).then(res => res.json())
     }
 
+    deleteCharFromRailsAPI(id) {
+   
+        return fetch(this.baseUrl + "/" + id, {
+            method: 'DELETE' 
+        }).then(res => {
+            if (!res.ok)  {
+                throw res
+            }
+            return res.json()
+        })
+        .catch(err => {
+            alert('Could not delete')
+        })    
+    }    
 
 
-    
 
 }

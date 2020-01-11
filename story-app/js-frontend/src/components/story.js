@@ -7,19 +7,11 @@ class Story {
     }
 
     renderLi() {
-        return `<li>${this.title}, id: ${this.id}</li>`
+
+        // return `<li>${this.title}, characters: ${this.characters.forEach(
+        //     ch => ch.firstName
+        // )}</li>`
     }
 
-    renderId()  {
-        return `${this.id}`
-    }
-
-    renderCard() {
-        return `
-            <div class="storyCard">
-                <h4>Title: ${this.title}</h4>
-                <p>Plot: ${this.plot}</p>
-            </div>`
-    }
 
 }

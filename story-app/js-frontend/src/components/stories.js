@@ -17,16 +17,23 @@ class Stories {
         this.saveBtn = document.getElementById('saveBtn')
         this.saveBtn.addEventListener('click', this.saveStoryThenRender.bind(this))
         this.deleteBtn = document.getElementById('deleteBtn')
-        this.deleteBtn.addEventListener('click', e => console.log('deleting') )
     }
 
     randoStoryGen() {
         // e.preventDefault()
         const stories = [
-            {title: 'Forbidden Love', plot: 'Two young lovers From different social class struggle to be together. But their love will not be denied!'},
+            {title: 'Forbidden Love', plot: 'Two young lovers from different social class struggle to be together. But their love will not be denied!'},
             {title: 'Bite Me', plot: 'An army of mailmen, sick of being bullied by the neighborhood pitbulls decide enough is enough. Woof goes the neighborhood.'},
             {title: 'Cheese Please', plot: 'A group of dairy farmers battle it out for control of the local cheese market.'},
-            {title: 'Don\'t Call it A Comeback', plot: 'A struggling actor lands the role of his life.'}
+            {title: 'Don\'t Call it A Comeback', plot: 'A struggling actress lands the role of her life.'},
+            {title: `Is Anybody Out There?`, plot: `A space crew sent to explore Mars loses all contact with Earth.`},
+            {title: `Doggone Dog`, plot: `When St. Bernard Harry's owner starts spending more time with his new girlfriend, mischeivous Harry does whatever he can to keep the romance from surviving. `},
+            {title: `Wings Over Walla Walla`, plot: `A new airport has the local residents all up in a tizzy.` },
+            {title: `Fourth and Won`, plot: `The grittiest veterans on the lowest budget team band together to give it one last fight.` },
+            {title: `Two for Angelo`, plot: `In this highly anticpated sequel, Angelo Pappas uses his chili dog hankering to his advantage.` },
+            {title: "Granny Git Yer Gun" , plot: 'A young pack of punks moves into Granny\'s neighborhood. Well, Granny\'s got a little something to say about that!' },
+            {title: 'Pies for Pablo' , plot: 'Ex-Cia Pablo Jones becomes a baker.' },
+            {title: 'Jet' , plot: 'A wrongly convicted fighter jet pilot flees - in the thing he drives best.' }
 
 
         ]
@@ -66,7 +73,9 @@ class Stories {
 
             // grab saved story container
             let selectedStory = document.getElementById('selected-story')
+            let selectedCharacters = document.getElementById('selected-characters')
             selectedStory.innerHTML = ""
+            selectedCharacters.innerHTML = ""
 
             // print title
             let selectedStoryTitle = document.createElement('h4') 
@@ -90,58 +99,109 @@ class Stories {
             let deleteBtn = document.createElement('button') 
             deleteBtn.id = "delete-story-btn"
             deleteBtn.innerHTML = "Delete"
+
+            // delete functionality
             deleteBtn.addEventListener('click', e => {
                 let loader = document.createElement('div')
                 loader.className = "loader"
                 selectedStory.appendChild(loader)
-                this.adapter.deleteStoryFromRailsAPI(story.id).then( obj => {
+
+                this.adapter.deleteStoryFromRailsAPI(story.id)
+                .then( obj => {
                     selectedStory.innerHTML = ""
+                    selectedCharacters.innerHTML = ""
                     //selectedStory.removeChild(loader)
-                })
-            }) 
+                }) // .then end
+
+                //  micah's code..... 
+            // this.stories.forEach( story => {
+            //     const storyCharacters = this.characters.filter( char =>  {
+            //         const charIds = story.characters.map( char =>  char.storyId)
+            //         return charIds.includes(char.id)
+            // })
+                    
+          
+                    
+            }) // end delete event
+
             selectedStory.appendChild(deleteBtn)
-           // 
-            // this.deleteBtn.removeAttribute("hidden")
-
-            console.log(`Still got ${story.id}`)
      
-        })
-
-        
+        }) // this.adapter.....
+   
     }
 
     fetchAndLoadStories() {
         this.storiesContainer.innerHTML = ""
         this.adapter.getStories()
-        .then( stories => {
-            stories.forEach( story => {
-                const storyCharacters = this.characters.filter( ch =>  {
-                const charIds = story.characters.map( ch =>  ch.id)
-                return charIds.includes(ch.id)
-            })
-                this.stories.push(new Story(story, storyCharacters)) 
-            })
+        .then( stories => { 
+             stories.forEach( story => {
+                this.stories.push(new Story(story, story.characters )) 
+        
         })
+
+    })
+        //     stories.forEach( story => {
+        //         const storyCharacters = this.characters.filter( char =>  {
+        //             const charIds = story.characters.map( char =>  char.storyId)
+        //             return charIds.includes(char.id)
+        //     })
+        //         this.stories.push(new Story(story, storyCharacters)) 
+        //     })
         .then( () => {
             this.render()
         })
     }
 
+    deleteCharFromRailsAPI(id) {
+
+        return fetch("http://localhost:3000/api/v1/characters" + "/" + id, {
+            method: 'DELETE' 
+        }).then(res => {
+            if (!res.ok)  {
+                throw res
+            }
+            return res.json()
+        })
+        .catch(err => {
+            alert('Could not delete')
+        })    
+    }    
+
     render() {
         const storiesContainer = document.getElementById("story-container")
 
-        let savedStory = document.createElement('div')
-        let title = document.getElementById("title").textContent
-        let plot = document.getElementById("plot").textContent
+        this.stories.forEach( story => {
+            let string = ""
+            let savedStory = document.createElement('div')
+            savedStory.className = "saved-story"
+
+            string += `<h4>${story.title}<span id="story-id" hidden>${story.id}</span></h4><ol>`
+           
+            story.characters.forEach( ch => {
+                string += `<li>${ch.first_name}` + `${ch.last_name}<span id="character-id" hidden>${ch.id}</span></li>`
+            })
+
+            string += "</ol>"
+
+            savedStory.innerHTML = string
+
+            let deleteBtn = document.createElement('button') 
+            deleteBtn.id = "delete-story-btn"
+            deleteBtn.innerHTML = "Delete"
+
+            deleteBtn.addEventListener('click', e => {
+                story.characters.forEach( c => {
+                    this.deleteCharFromRailsAPI(c.id)
+                })
+                this.adapter.deleteStoryFromRailsAPI(story.id)
+            })
+
+            savedStory.appendChild(deleteBtn)
+
+            storiesContainer.appendChild(savedStory)
 
 
+        }) 
 
-        // storiesContainer.append(this.stories.map(story => `Title: ${story.title}`)
-        const storiesString = this.stories.map(story => story.renderLi()).join(" ")
-        // const storiesContainer = document.getElementById("story-container")
-        storiesContainer.innerHTML = ""
-        storiesContainer.innerHTML = `${storiesString}`
     }
-
-}
-
+} // Stories

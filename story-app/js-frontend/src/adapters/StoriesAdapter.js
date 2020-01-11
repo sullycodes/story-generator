@@ -21,7 +21,6 @@ class StoriesAdapter {
             },
             body: JSON.stringify({ story }),  
         }).then(res => res.json())
-        // .then( story => console.log(`Congrats! You have saved this story with an id of ${story.id}!`))
     }
 
     deleteStoryFromRailsAPI(id) {
@@ -30,11 +29,6 @@ class StoriesAdapter {
    
         return fetch(this.baseUrl + "/" + id, {
             method: 'DELETE' 
-            //          }).then(() => {
-            //    console.log('removed');
-            // }).catch(err => {
-            //   console.error(err)
-            // });
         }).then(res => {
             if (!res.ok)  {
                 throw res
@@ -44,15 +38,24 @@ class StoriesAdapter {
         .catch(err => {
             alert('Could not delete')
         })
-        // function remove(id){
-        //     fetch(apiUrl + "/" + id, {
-        //       method: 'DELETE'
-        //     }).then(() => {
-        //        console.log('removed');
-        //     }).catch(err => {
-        //       console.error(err)
-        //     });
+   
     }
+
+    // deleteCharFromRailsAPI(id) {
+   
+    //     return fetch(this.baseUrl + "/" + id, {
+    //         method: 'DELETE' 
+    //     }).then(res => {
+    //         if (!res.ok)  {
+    //             throw res
+    //         }
+    //         return res.json()
+    //     })
+    //     .catch(err => {
+    //         alert('Could not delete')
+    //     })    
+    // }    
+
 
 }
 

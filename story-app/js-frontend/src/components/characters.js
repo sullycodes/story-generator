@@ -23,19 +23,19 @@ class Characters {
     }
 
     firstNameMale() {
-        const firstNames = ['Cap','Pico','Frank','Gary','Frank','Marcus','Luke','Malcolm','Tank','Kirk','Spike','Farnsworth','Gerard','Ward','Allistair','Ellis','Salinger','Vlad','Omar','Julio','Brick','Tut','Winger','Gunner','Hunter','Blanco','Joey','Kip','Jamal','Tito','Kipling','Chum','Pierce','Mario','Vincenzo','Hawk','Bull','Bear','Jigsaw','Skip','Doobie','Bones','Tanner','Amir','Git','Coder','Spike','Creep','Milo', 'Wyatt','Wade','Wes','Cap','Boris','Fork','Fargen','Goose','Daniel','Tapper','Keys','BenJarvus','Dizzy','Whiskers','Galenthorpe','Shorty','Gordie','Colt','Maximo','Stanley','Bud','Jazz','Nico','Oliver','Tripp','Edgar','Ox','Bo','Finn','Rick','Patrick','Jude'];
+        const firstNames = ['Satch','Jalencourt','Cap','Pico','Frank','Gary','Frank','Marcus','Luke','Malcolm','Tank','Kirk','Spike','Farnsworth','Gerard','Ward','Allistair','Ellis','Salinger','Vlad','Omar','Julio','Brick','Tut','Winger','Gunner','Hunter','Blanco','Joey','Kip','Jamal','Tito','Kipling','Chum','Pierce','Mario','Vincenzo','Hawk','Bull','Bear','Jigsaw','Skip','Doobie','Bones','Tanner','Amir','Git','Coder','Spike','Creep','Milo', 'Wyatt','Wade','Wes','Cap','Boris','Fork','Fargen','Goose','Daniel','Tapper','Keys','BenJarvus','Dizzy','Whiskers','Galenthorpe','Shorty','Gordie','Colt','Maximo','Stanley','Bud','Jazz','Nico','Oliver','Tripp','Edgar','Ox','Bo','Finn','Rick','Patrick','Jude','Daniel'];
         let randoNumFirst = Math.floor(Math.random()*firstNames.length);
         return firstNames[randoNumFirst]
     }
 
     firstNameFemale() {
-        const firstNames = ['Jan','Bree','Shalimar','Alice','Sally','Chica','Simone','Betty','Sangeline','Kiki','Deede','Mirabel','Rosie','Lottie','Riley','Savannah','Georgia','Harper','Simone','Natalie','Foxy','Amelia','Lady','Holly','Helga','Eva','Brooklyn','Ginger','Brandi','Alanah','Harper','Marisol','Greta','Zoey','Hadley','Madeline','Ruby','Charlotte','Denver','Eve','Rosalita','Misery','Lupa','Avery','Brooke','Lila','Abigail','Trixie', 'Akemi', 'Serenity','Fran','Frau','Mallory','Gertie','Tululah','Livi','Ashley','Norah','Carly','Macy','Abigail','Rhys','Rory','Annie','Daisy','Lucy','Moxie','Sarah','Madison','Heather','Lorelei','Gal','Hope','Hattie','Stella','Akira','Rumi','Ishi','Nomi','Sadie','Esther','Ainsley','Kelsie','Mabel','Parker','Sophie','Gladys','Dawn','Flora','Kate'];
+        const firstNames = ['Jan','Bree','Shalimar','Alice','Sally','Chica','Simone','Betty','Sangeline','Kiki','Deede','Mirabel','Rosie','Lottie','Riley','Savannah','Georgia','Harper','Simone','Natalie','Foxy','Amelia','Lady','Holly','Helga','Eva','Brooklyn','Ginger','Brandi','Alanah','Harper','Marisol','Greta','Zoey','Hadley','Madeline','Ruby','Charlotte','Denver','Eve','Rosalita','Misery','Lupa','Avery','Brooke','Lila','Abigail','Trixie', 'Akemi', 'Serenity','Fran','Frau','Mallory','Gertie','Tululah','Livi','Ashley','Norah','Carly','Macy','Abigail','Rhys','Rory','Annie','Daisy','Lucy','Moxie','Sarah','Madison','Heather','Lorelei','Gal','Hope','Hattie','Stella','Akira','Rumi','Ishi','Nomi','Sadie','Esther','Ainsley','Kelsie','Mabel','Parker','Sophie','Gladys','Dawn','Flora','Kate','Layla'];
         let randoNumFirst = Math.floor(Math.random()*firstNames.length);
         return firstNames[randoNumFirst]
     }
 
     lastName() {
-        const lastNames = ['Kupchak','Wolski','Jackson', 'Muldoon', 'Vargas', 'Martinez-Gates', 'Collinsworth','Ellington','Blaisdell','Gannon','Sanchez','Lee','Chin','McManus','Frontiero','McMahon','Hogan','Rickers','Van Fleet','Pinto','Samsonov','Sullivan','Vendici','Pantone-Smith','Sharpe','Lane-Stanton','Marlowe','Pascucci','Giacomo','Lane-Jones','Langone','Carney',"Marciano", "Antonio","Jones","Bigsby",'Parker','O\'Shaughnessy','Kinsington','Page','Hendrix','Moses','Vaughn','Brady','Zoots','Lattimore','Carbone','Abdul','Smith','Weir','Jett','Hopper','Zappa','Boone','Harry','Henry','Carp','Gonzalez','Mykonos','Scott','Halpert','Beasley','Mack','Taylor','Bolas','James','Nelson','Liu','Lee','Barishnakov','al-Bin','Suture','Green-Ellis','Aaron-Blake','Spinks','Parcheesi','Stein','Ramirez','Byrd','Orr','Tippett','Wise','Wheatley','Wags','O\'Rourke','Slater','Lansdowne','Abdul','D\'Antonio','Artemis','Fowley','Baker','Troubadour','Garcia','Vostov','Tran','Kowalski','Sanfiliopo','Gardner','Johnson','Tisdale','Jansen','Grant','Potts','Cooper','Adams','Coleman','Ballast-Gast','Simmons','Brooks','Hightower','Krenshaw','Scott','Halpert','Schrute','Beasley','Malone','Vance','Ludlow','Eastman','West','Dixon','Finbar','Patel','Jane-Curtis','Samsel','Dooley']
+        const lastNames = ['Phillips','Kupchak','Wolski','Jackson', 'Muldoon', 'Vargas', 'Martinez-Gates', 'Collinsworth','Ellington','Blaisdell','Gannon','Sanchez','Lee','Chin','McManus','Frontiero','McMahon','Hogan','Rickers','Van Fleet','Pinto','Samsonov','Sullivan','Vendici','Pantone-Smith','Sharpe','Lane-Stanton','Marlowe','Pascucci','Giacomo','Lane-Jones','Langone','Carney',"Marciano", "Antonio","Jones","Bigsby",'Parker','O\'Shaughnessy','Kinsington','Page','Hendrix','Moses','Vaughn','Brady','Zoots','Lattimore','Carbone','Abdul','Smith','Weir','Jett','Hopper','Zappa','Boone','Harry','Henry','Carp','Gonzalez','Mykonos','Scott','Halpert','Beasley','Mack','Taylor','Bolas','James','Nelson','Liu','Lee','Barishnakov','al-Bin','Suture','Green-Ellis','Aaron-Blake','Spinks','Parcheesi','Stein','Ramirez','Byrd','Orr','Tippett','Wise','Wheatley','Wags','O\'Rourke','Slater','Lansdowne','Abdul','D\'Antonio','Artemis','Fowley','Baker','Troubadour','Garcia','Vostov','Tran','Kowalski','Sanfiliopo','Gardner','Johnson','Tisdale','Jansen','Grant','Potts','Cooper','Adams','Coleman','Ballast-Gast','Simmons','Brooks','Hightower','Krenshaw','Scott','Halpert','Schrute','Beasley','Malone','Vance','Ludlow','Eastman','West','Dixon','Finbar','Patel','Jane-Curtis','Samsel','Dooley','Boone','Oakley','Wood','Tantino','de Leon','Jiminez','Stench','Abboud','Nassar','MacGregor','West']
         var randoNumLast = Math.floor(Math.random()*lastNames.length);
         return lastNames[randoNumLast]
       }  
@@ -154,20 +154,9 @@ class Characters {
                 story_id: storyId
             }
 
-            console.log(character)
 
-            this.adapter.saveCharacterToRailsAPI(character).then( character => {
-                
-                console.log(character)
-                console.log(`${character.id}`) 
-            })
-            .then((data) => {
-            console.log('You have successfuly saved your character!');
-            })
-            .catch((error) => {
-            console.error('There was an error saving your character!');
-            });
-
+            this.adapter.saveCharacterToRailsAPI(character)
+    
          
            
     } // end selectCharacter
