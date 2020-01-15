@@ -16,7 +16,7 @@ class Stories {
         this.storyGenBtn.addEventListener('click', this.randoStoryGen.bind(this)) 
         this.saveBtn = document.getElementById('saveBtn')
         this.saveBtn.addEventListener('click', this.saveStoryThenRender.bind(this))
-        this.deleteBtn = document.getElementById('deleteBtn')
+        // this.deleteBtn = document.getElementById('deleteBtn')
     }
 
     randoStoryGen() {
@@ -94,28 +94,6 @@ class Stories {
             storyId.id = "new-story-id"
             storyId.innerHTML = `Id: ${story.id}`
             selectedStory.appendChild(storyId)
-
-            //create delete button
-            let deleteBtn = document.createElement('button') 
-            deleteBtn.id = "delete-story-btn"
-            deleteBtn.innerHTML = "Delete"
-
-            // delete functionality
-            deleteBtn.addEventListener('click', e => {
-                let loader = document.createElement('div')
-                loader.className = "loader"
-                selectedStory.appendChild(loader)
-
-                this.adapter.deleteStoryFromRailsAPI(story.id)
-                .then( obj => {
-                    selectedStory.innerHTML = ""
-                    selectedCharacters.innerHTML = ""
-                    //selectedStory.removeChild(loader)
-                }) // .then end
-                    
-            }) // end delete event
-
-            selectedStory.appendChild(deleteBtn)
      
         }) // this.adapter.....
    
@@ -181,9 +159,9 @@ class Stories {
             deleteBtn.addEventListener('click', e => {
                 story.characters.forEach( c => {
                     this.deleteCharFromRailsAPI(c.id)
-                    savedStory.remove()
                 })
                 this.adapter.deleteStoryFromRailsAPI(story.id)
+                savedStory.remove()
             })
 
             savedStory.appendChild(deleteBtn)
