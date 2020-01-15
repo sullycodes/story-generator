@@ -91,7 +91,7 @@ class Stories {
 
             // print id
             let storyId = document.createElement('p')
-            storyId.id = "story-id"
+            storyId.id = "new-story-id"
             storyId.innerHTML = `Id: ${story.id}`
             selectedStory.appendChild(storyId)
 
@@ -112,15 +112,6 @@ class Stories {
                     selectedCharacters.innerHTML = ""
                     //selectedStory.removeChild(loader)
                 }) // .then end
-
-                //  micah's code..... 
-            // this.stories.forEach( story => {
-            //     const storyCharacters = this.characters.filter( char =>  {
-            //         const charIds = story.characters.map( char =>  char.storyId)
-            //         return charIds.includes(char.id)
-            // })
-                    
-          
                     
             }) // end delete event
 
@@ -140,13 +131,6 @@ class Stories {
         })
 
     })
-        //     stories.forEach( story => {
-        //         const storyCharacters = this.characters.filter( char =>  {
-        //             const charIds = story.characters.map( char =>  char.storyId)
-        //             return charIds.includes(char.id)
-        //     })
-        //         this.stories.push(new Story(story, storyCharacters)) 
-        //     })
         .then( () => {
             this.render()
         })
@@ -167,8 +151,13 @@ class Stories {
         })    
     }    
 
+   
+
     render() {
         const storiesContainer = document.getElementById("story-container")
+        const refreshBtn = document.getElementById("refresh-button")
+        refreshBtn.addEventListener('click', e => location.reload())
+
 
         this.stories.forEach( story => {
             let string = ""
@@ -192,6 +181,7 @@ class Stories {
             deleteBtn.addEventListener('click', e => {
                 story.characters.forEach( c => {
                     this.deleteCharFromRailsAPI(c.id)
+                    savedStory.remove()
                 })
                 this.adapter.deleteStoryFromRailsAPI(story.id)
             })

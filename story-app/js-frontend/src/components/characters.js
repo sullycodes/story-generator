@@ -132,8 +132,8 @@ class Characters {
             // let storyId = document.getElementById('story-id').innerHTML.slice(4)
             let storyId = 0
             
-            if (document.getElementById('story-id')) {
-                let id = document.getElementById('story-id').innerHTML.slice(4)
+            if (document.getElementById('new-story-id')) {
+                let id = document.getElementById('new-story-id').innerHTML.slice(4)
                 storyId += id
             }
             else  {
